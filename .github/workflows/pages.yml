@@ -18,20 +18,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: npm
+          cache-dependency-path: my-app/package-lock.json
 
-      - name: Install dependencies
+      - name: Install deps
         run: npm ci
         working-directory: my-app
 
-      - name: Build static site
+      - name: Build
         run: npm run build
         working-directory: my-app
 
@@ -39,6 +38,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: my-app/out
+
 
   deploy:
     needs: build
