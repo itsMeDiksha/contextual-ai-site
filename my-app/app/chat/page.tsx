@@ -7,7 +7,8 @@ export default function ChatPage() {
 
   async function ask(e: React.FormEvent) {
     e.preventDefault();
-    setAnswer("Thinking…");
+    setAnswer("Thinking...");
+
     // Use basePath-aware URL for GitHub Pages
     const base = "/contextual-ai-site";
     const res = await fetch(`${base}/api/query`, {
@@ -15,6 +16,12 @@ export default function ChatPage() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ query: text }),
     });
+
+    if (!res.ok) {
+      setAnswer(`Request failed: ${res.status}`);
+      return;
+    }
+
     const json = await res.json();
     setAnswer(json.reply ?? "No reply");
   }
