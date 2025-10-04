@@ -5,4 +5,5 @@ module.exports = {
   output: 'export',
   basePath: isProd ? '/contextual-ai-site' : '',
   assetPrefix: isProd ? '/contextual-ai-site/' : '',
+  images: { unoptimized: true }, // optional but helpful on export
 };
