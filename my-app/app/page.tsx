@@ -14,7 +14,10 @@ export default function Home() {
           height={38}
           priority
         />
-        <p className="mt-4"> <Link href="/chat" className="underline">Open the chat</Link> </p>
+         <h1>Welcome</h1>
+      <p>
+        <Link href="/chat">Open the chat</Link>
+      </p>
         <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
           <li className="mb-2 tracking-[-.01em]">
             Get started by editing{" "}

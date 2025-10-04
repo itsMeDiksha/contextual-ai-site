@@ -9,19 +9,21 @@ export default function ChatPage() {
     e.preventDefault();
     setAnswer("Thinking...");
 
-    const base = "/contextual-ai-site";
-    const url = new URL(`${base}/api/query`, window.location.origin);
-    url.searchParams.set("query", text);
-
     try {
-      const res = await fetch(url.toString(), { method: "GET" });
+      const base = "/contextual-ai-site";
+      const res = await fetch(`${base}/api/query`, { method: "GET" });
       if (!res.ok) {
         setAnswer(`Request failed: ${res.status}`);
         return;
       }
       const json = await res.json();
-      setAnswer(json.reply ?? "No reply");
-    } catch (err) {
+      // Echo the user input on the client to simulate a tailored reply
+      setAnswer(
+        text.trim()
+          ? `${json.reply} You asked: "${text.trim()}".`
+          : json.reply
+      );
+    } catch {
       setAnswer("Network error");
     }
   }
