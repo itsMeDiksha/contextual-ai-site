@@ -1,9 +1,7 @@
-/** @type {import('next').NextConfig} */
-const isProd = process.env.NODE_ENV === "production";
-
+// next.config.js
+const isGH = process.env.NEXT_PUBLIC_BASE_PATH;
 module.exports = {
   output: "export",
-  basePath: isProd ? "/contextual-ai-site" : "",
-  assetPrefix: isProd ? "/contextual-ai-site/" : "",
-  images: { unoptimized: true },
+  basePath: isGH ? process.env.NEXT_PUBLIC_BASE_PATH : undefined, // e.g. "/contextual-ai-site"
+  assetPrefix: isGH ? process.env.NEXT_PUBLIC_BASE_PATH + "/" : undefined,
 };
