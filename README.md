@@ -5,14 +5,16 @@ A small project for KPIT Sparkle that recommends media and gives concise, safe a
 Build a context‑aware co‑pilot that enhances in‑car infotainment by combining retrieval‑augmented generation with lightweight rules and user context. Given a user query or a “quick suggest” action plus route, time, and recent selections, the system should return three grounded recommendations or a brief answer with clear source citations, fast enough for real‑time use and safe for drivers.
 
 ## KPIs
-.Success targets for the demo and evaluations.
+Success targets for the demo and evaluations.
 - Groundedness: ≥ 80% of answers cite at least one retrieved source relevant to the response.
 
 - Latency: p95 end‑to‑end time to first complete answer ≤ 2.5 s.
 
 - Engagement: ≥ 20% click‑through on recommendation cards during test sessions.
 
+
 ## Milestone checklist
+
 
 - []Define context schema and sample payloads.
 
